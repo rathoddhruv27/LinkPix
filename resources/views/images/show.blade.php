@@ -329,11 +329,11 @@
     {{-- Toolbar: View Mode Switcher --}}
     <div class="view-toolbar">
         <div class="mode-switch-group">
-            <button type="button" class="mode-btn active" id="btn-mode-spatial" onclick="switchViewMode('spatial')">
-                <i data-lucide="box" style="width: 18px; height: 18px;"></i> 3D Spatial Canvas
+            <button type="button" class="mode-btn active" id="btn-mode-showcase" onclick="switchViewMode('showcase')">
+                <i data-lucide="sparkles" style="width: 18px; height: 18px;"></i> Media View
             </button>
-            <button type="button" class="mode-btn" id="btn-mode-showcase" onclick="switchViewMode('showcase')">
-                <i data-lucide="sparkles" style="width: 18px; height: 18px;"></i> 3D Showcase Card
+            <button type="button" class="mode-btn" id="btn-mode-spatial" onclick="switchViewMode('spatial')">
+                <i data-lucide="box" style="width: 18px; height: 18px;"></i> 3D Spatial Canvas
             </button>
         </div>
 
@@ -348,8 +348,19 @@
         </div>
     </div>
 
-    {{-- Mode 1: 3D Spatial WebGL Viewport Stage --}}
-    <div class="spatial-viewport-container" id="spatial-stage">
+    {{-- Mode 1: Standard Media Showcase View (DEFAULT) --}}
+    <div class="showcase-stage tilt-3d" id="showcase-stage" style="display: block;">
+        <div class="media-preview-container">
+            @if($image->is_video)
+                <video id="media-element" src="{{ $image->storage_url }}" controls autoplay loop playsinline style="width: 100%; height: auto; max-height: 65vh;"></video>
+            @else
+                <img id="media-element" src="{{ $image->storage_url }}" alt="{{ $image->original_name }}">
+            @endif
+        </div>
+    </div>
+
+    {{-- Mode 2: 3D Spatial WebGL Viewport Stage (TOGGLEABLE) --}}
+    <div class="spatial-viewport-container" id="spatial-stage" style="display: none;">
         <canvas id="spatial-3d-canvas"></canvas>
 
         <div class="spatial-controls-overlay">
@@ -362,17 +373,6 @@
             <button type="button" class="ctrl-btn" onclick="toggleSpatialFullscreen()" title="Fullscreen 3D View">
                 <i data-lucide="maximize-2" style="width: 14px; height: 14px;"></i> Fullscreen
             </button>
-        </div>
-    </div>
-
-    {{-- Mode 2: 3D Showcase Card View --}}
-    <div class="showcase-stage tilt-3d" id="showcase-stage">
-        <div class="media-preview-container">
-            @if($image->is_video)
-                <video id="media-element" src="{{ $image->storage_url }}" controls autoplay loop playsinline style="width: 100%; height: auto; max-height: 65vh;"></video>
-            @else
-                <img id="media-element" src="{{ $image->storage_url }}" alt="{{ $image->original_name }}">
-            @endif
         </div>
     </div>
 
@@ -589,6 +589,9 @@
         const btnShowcase = document.getElementById('btn-mode-showcase');
 
         if (mode === 'spatial') {
+            if (!spatialScene) {
+                initSpatial3DStage();
+            }
             spatialStage.style.display = 'block';
             showcaseStage.style.display = 'none';
             btnSpatial.classList.add('active');
@@ -655,9 +658,9 @@
         });
     }
 
-    // Init on load
+    // Default to Standard Showcase Card view on load
     document.addEventListener('DOMContentLoaded', () => {
-        initSpatial3DStage();
+        switchViewMode('showcase');
     });
 </script>
 @endsection
