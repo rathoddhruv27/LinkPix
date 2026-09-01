@@ -233,6 +233,90 @@
         from { opacity: 0; transform: translateY(-15px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Mobile, Tablet & iPad Responsive Media Queries */
+    @media (max-width: 768px) {
+        .header-section {
+            margin-bottom: 1.75rem;
+        }
+
+        .header-section h1 {
+            font-size: 2.15rem;
+        }
+
+        .header-section p {
+            font-size: 1rem;
+        }
+
+        .dropzone {
+            padding: 2.5rem 1.25rem;
+            border-radius: 16px;
+        }
+
+        .dropzone-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .dropzone h3 {
+            font-size: 1.2rem !important;
+        }
+
+        .success-card {
+            padding: 1.5rem 1.25rem;
+            border-radius: 18px;
+        }
+    }
+
+    @media (max-width: 520px) {
+        .header-section h1 {
+            font-size: 1.7rem;
+        }
+
+        .header-section p {
+            font-size: 0.9rem;
+        }
+
+        .dropzone {
+            padding: 2rem 1rem;
+        }
+
+        .dropzone-icon {
+            width: 52px;
+            height: 52px;
+        }
+
+        .url-box {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.65rem;
+        }
+
+        .url-box button {
+            width: 100%;
+        }
+
+        .preview-card {
+            flex-direction: row;
+            gap: 0.85rem;
+            padding: 1rem;
+        }
+
+        .preview-media-box {
+            width: 70px;
+            height: 70px;
+        }
+
+        .preview-name {
+            font-size: 0.95rem;
+        }
+
+        .preview-meta {
+            font-size: 0.775rem;
+            gap: 0.35rem;
+        }
+    }
 </style>
 @endsection
 

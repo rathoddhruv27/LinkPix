@@ -232,6 +232,93 @@
         font-size: 0.95rem;
         outline: none;
     }
+
+    /* Mobile, Tablet & iPad Responsive Media Queries */
+    @media (max-width: 820px) {
+        .spatial-viewport-container {
+            height: 420px;
+            border-radius: 20px;
+        }
+
+        .showcase-stage {
+            padding: 1.25rem;
+            border-radius: 20px;
+        }
+
+        .meta-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+    }
+
+    @media (max-width: 580px) {
+        .view-toolbar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.75rem;
+        }
+
+        .mode-switch-group {
+            width: 100%;
+        }
+
+        .mode-btn {
+            flex: 1;
+            justify-content: center;
+            font-size: 0.825rem;
+            padding: 0.5rem 0.65rem;
+        }
+
+        .spatial-viewport-container {
+            height: 330px;
+            border-radius: 16px;
+            margin-bottom: 1.25rem;
+        }
+
+        .spatial-controls-overlay {
+            width: 92%;
+            bottom: 0.85rem;
+            padding: 0.35rem 0.5rem;
+            gap: 0.4rem;
+            justify-content: center;
+        }
+
+        .ctrl-btn {
+            padding: 0.35rem 0.55rem;
+            font-size: 0.75rem;
+        }
+
+        .meta-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+        }
+
+        .meta-card {
+            padding: 0.85rem;
+            gap: 0.6rem;
+            border-radius: 14px;
+        }
+
+        .meta-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+        }
+
+        .meta-value {
+            font-size: 0.9rem;
+        }
+
+        .url-box {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.65rem;
+        }
+
+        .url-box button {
+            width: 100%;
+        }
+    }
 </style>
 @endsection
 
