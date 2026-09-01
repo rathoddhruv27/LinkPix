@@ -31,20 +31,30 @@ class ImageController extends Controller
     }
 
     /**
-     * Handle the image upload process.
+     * Handle the media (image/video) upload process.
      */
     public function store(Request $request): RedirectResponse
     {
+        // Fallback input field detection: support 'image', 'media', or 'file'
+        $fieldKey = 'image';
+        if (! $request->hasFile('image')) {
+            if ($request->hasFile('media')) {
+                $fieldKey = 'media';
+            } elseif ($request->hasFile('file')) {
+                $fieldKey = 'file';
+            }
+        }
+
         $request->validate([
-            'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:10240'],
+            $fieldKey => ['required', 'file', 'mimes:jpg,jpeg,png,webp,gif,mp4,webm,ogg,mov', 'max:51200'],
         ], [
-            'image.required' => 'Please select an image file to upload.',
-            'image.image' => 'The uploaded file must be an image.',
-            'image.mimes' => 'Only JPG, JPEG, PNG, and WebP images are allowed.',
-            'image.max' => 'The image size cannot exceed 10 MB.',
+            "{$fieldKey}.required" => 'Please select an image or video file to upload.',
+            "{$fieldKey}.file" => 'The uploaded file must be a valid media file.',
+            "{$fieldKey}.mimes" => 'Allowed formats: JPG, JPEG, PNG, WebP, GIF, MP4, WebM, OGG, and MOV.',
+            "{$fieldKey}.max" => 'The media file size cannot exceed 50 MB.',
         ]);
 
-        $file = $request->file('image');
+        $file = $request->file($fieldKey);
 
         // Generate a unique 8-character key
         do {
@@ -52,24 +62,31 @@ class ImageController extends Controller
         } while (Image::where('unique_key', $uniqueKey)->exists());
 
         $originalName = $file->getClientOriginalName();
-        $extension = $file->getClientOriginalExtension() ?: 'jpg';
-        $fileName = $uniqueKey.'.'.strtolower($extension);
+        $extension = strtolower($file->getClientOriginalExtension() ?: 'jpg');
+        $fileName = $uniqueKey.'.'.$extension;
 
         // Store in public disk under 'images' folder (storage/app/public/images/)
         $filePath = $file->storeAs('images', $fileName, 'public');
+
+        $mimeType = $file->getMimeType();
+        if (! $mimeType) {
+            $mimeType = in_array($extension, ['mp4', 'webm', 'ogg', 'mov']) ? 'video/'.$extension : 'image/'.$extension;
+        }
 
         $image = Image::create([
             'unique_key' => $uniqueKey,
             'original_name' => $originalName,
             'file_name' => $fileName,
             'file_path' => $filePath,
-            'mime_type' => $file->getMimeType() ?? 'image/'.$extension,
+            'mime_type' => $mimeType,
             'file_size' => $file->getSize(),
             'views' => 0,
         ]);
 
+        $mediaLabel = $image->is_video ? 'Video' : 'Image';
+
         return redirect()->route('images.index')
-            ->with('success', 'Image uploaded successfully!')
+            ->with('success', "{$mediaLabel} uploaded successfully!")
             ->with('uploaded_key', $image->unique_key)
             ->with('uploaded_image', $image);
     }

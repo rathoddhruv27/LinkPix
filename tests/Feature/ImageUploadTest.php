@@ -17,8 +17,8 @@ class ImageUploadTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSee('LinkPix');
-        $response->assertSee('Upload & Share Image');
+        $response->assertSee('LinkPix 3D');
+        $response->assertSee('Upload & Share Media', false);
     }
 
     public function test_user_can_upload_an_image(): void
@@ -38,10 +38,36 @@ class ImageUploadTest extends TestCase
         $image = Image::first();
         $this->assertNotNull($image);
         $this->assertEquals('cat.jpg', $image->original_name);
+        $this->assertTrue($image->is_image);
+        $this->assertFalse($image->is_video);
+        $this->assertEquals('image', $image->media_type);
         $this->assertEquals(0, $image->views);
         $this->assertEquals('images/'.$image->file_name, $image->file_path);
 
         Storage::disk('public')->assertExists('images/'.$image->file_name);
+    }
+
+    public function test_user_can_upload_a_video(): void
+    {
+        Storage::fake('public');
+
+        $file = UploadedFile::fake()->create('intro.mp4', 5000, 'video/mp4');
+
+        $response = $this->post('/upload', [
+            'image' => $file,
+        ]);
+
+        $response->assertRedirect('/');
+        $response->assertSessionHas('success');
+
+        $media = Image::first();
+        $this->assertNotNull($media);
+        $this->assertEquals('intro.mp4', $media->original_name);
+        $this->assertTrue($media->is_video);
+        $this->assertFalse($media->is_image);
+        $this->assertEquals('video', $media->media_type);
+
+        Storage::disk('public')->assertExists('images/'.$media->file_name);
     }
 
     public function test_validation_rejects_invalid_file_type(): void

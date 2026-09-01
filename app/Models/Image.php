@@ -48,11 +48,39 @@ class Image extends Model
     }
 
     /**
+     * Determine if the file is a video.
+     */
+    public function getIsVideoAttribute(): bool
+    {
+        return str_starts_with($this->mime_type, 'video/') ||
+            in_array(pathinfo($this->file_name, PATHINFO_EXTENSION), ['mp4', 'webm', 'ogg', 'mov', 'avi']);
+    }
+
+    /**
+     * Determine if the file is an image.
+     */
+    public function getIsImageAttribute(): bool
+    {
+        return ! $this->is_video;
+    }
+
+    /**
+     * Get media type label ('video' or 'image').
+     */
+    public function getMediaTypeAttribute(): string
+    {
+        return $this->is_video ? 'video' : 'image';
+    }
+
+    /**
      * Get human readable file size.
      */
     public function getFormattedSizeAttribute(): string
     {
         $bytes = $this->file_size;
+        if ($bytes >= 1073741824) {
+            return number_format($bytes / 1073741824, 2).' GB';
+        }
         if ($bytes >= 1048576) {
             return number_format($bytes / 1048576, 2).' MB';
         }
