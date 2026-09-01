@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: LinkPix
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_NAME
+        value: LinkPix
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        value: https://linkpix-q1y8.onrender.com
+      - key: APP_KEY
+        value: base64:LeSZxhN15mJVB1+GQncY7lBRBWV9Ms7gjEPO+Zf+JAI=
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: SESSION_DRIVER
+        value: cookie
