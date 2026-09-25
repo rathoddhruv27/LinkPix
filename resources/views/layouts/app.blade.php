@@ -258,9 +258,6 @@
                 <span class="badge-formal">
                     <i data-lucide="shield-check" style="width: 13px; height: 13px;"></i> Media Portal
                 </span>
-                <a href="{{ route('images.index') }}" class="btn-secondary" style="padding: 0.45rem 0.85rem; font-size: 0.85rem;">
-                    <i data-lucide="upload-cloud" style="width: 15px; height: 15px;"></i> Upload
-                </a>
             </div>
         </div>
     </header>
@@ -273,7 +270,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; {{ date('Y') }} ImageLK — Fast & Secure Image and Media Hosting.</p>
+            <p>&copy; {{ date('Y') }} ImageLK </p>
         </div>
     </footer>
 
