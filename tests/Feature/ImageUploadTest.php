@@ -106,5 +106,12 @@ class ImageUploadTest extends TestCase
         $response->assertSee('1'); // view count incremented
 
         $this->assertEquals(1, $image->fresh()->views);
+
+        // Refresh / view page again in the same session
+        $refreshResponse = $this->get('/image/'.$image->unique_key);
+        $refreshResponse->assertStatus(200);
+
+        // View count should remain 1, not increment to 2
+        $this->assertEquals(1, $image->fresh()->views);
     }
 }

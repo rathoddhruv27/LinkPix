@@ -9,7 +9,7 @@
         margin: 0 auto;
     }
 
-    /* 3D Viewport Header Toolbar */
+    /* Header Toolbar */
     .view-toolbar {
         display: flex;
         justify-content: space-between;
@@ -19,126 +19,34 @@
         gap: 1rem;
     }
 
-    .mode-switch-group {
-        display: flex;
-        background: rgba(15, 23, 42, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 0.35rem;
-        border-radius: 16px;
-        gap: 0.35rem;
-        backdrop-filter: blur(12px);
-    }
-
-    .mode-btn {
-        background: transparent;
-        border: none;
-        color: var(--text-muted);
-        padding: 0.55rem 1.15rem;
-        border-radius: 12px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        cursor: pointer;
+    .toolbar-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #f3f4f6;
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        font-family: inherit;
     }
 
-    .mode-btn.active {
-        background: var(--primary-gradient);
-        color: #ffffff;
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-    }
-
-    /* 3D WebGL Spatial Viewport Stage */
-    .spatial-viewport-container {
-        position: relative;
-        width: 100%;
-        height: 520px;
-        background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #090d16 100%);
-        border: 1px solid rgba(168, 85, 247, 0.3);
-        border-radius: 24px;
-        overflow: hidden;
-        margin-bottom: 2rem;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(99, 102, 241, 0.15);
-    }
-
-    #spatial-3d-canvas {
-        width: 100%;
-        height: 100%;
-        display: block;
-        cursor: grab;
-    }
-
-    #spatial-3d-canvas:active {
-        cursor: grabbing;
-    }
-
-    .spatial-controls-overlay {
-        position: absolute;
-        bottom: 1.25rem;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        background: rgba(9, 13, 22, 0.85);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 14px;
-        padding: 0.4rem 0.85rem;
-        backdrop-filter: blur(12px);
-        z-index: 20;
-    }
-
-    .ctrl-btn {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: var(--text-main);
-        padding: 0.45rem 0.85rem;
-        border-radius: 10px;
-        font-size: 0.825rem;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        transition: all 0.2s ease;
-    }
-
-    .ctrl-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-        transform: translateY(-1px);
-    }
-
-    .ctrl-btn.active {
-        background: #818cf8;
-        color: #ffffff;
-    }
-
-    /* 3D Showcase Card View */
+    /* Media Showcase View */
     .showcase-stage {
-        display: none;
-        background: rgba(15, 23, 42, 0.75);
+        background: #111827;
         border: 1px solid var(--border-card);
-        border-radius: 24px;
+        border-radius: 16px;
         padding: 2rem;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         position: relative;
         overflow: hidden;
-        perspective: 1200px;
     }
 
     .media-preview-container {
         max-width: 100%;
         max-height: 65vh;
         margin: 0 auto;
-        border-radius: 16px;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
         border: 1px solid rgba(255, 255, 255, 0.12);
         background: #000000;
         position: relative;
@@ -164,23 +72,18 @@
     .meta-card {
         background: rgba(15, 23, 42, 0.65);
         border: 1px solid var(--border-card);
-        border-radius: 18px;
+        border-radius: 14px;
         padding: 1.1rem 1.25rem;
         display: flex;
         align-items: center;
         gap: 0.85rem;
-        transition: transform 0.3s ease;
-    }
-
-    .meta-card:hover {
-        transform: translateY(-2px);
     }
 
     .meta-icon {
         width: 44px;
         height: 44px;
-        border-radius: 14px;
-        background: rgba(99, 102, 241, 0.15);
+        border-radius: 10px;
+        background: rgba(79, 70, 229, 0.15);
         color: #818cf8;
         display: flex;
         align-items: center;
@@ -206,9 +109,9 @@
     }
 
     .share-bar {
-        background: rgba(17, 24, 39, 0.75);
+        background: #111827;
         border: 1px solid var(--border-card);
-        border-radius: 20px;
+        border-radius: 14px;
         padding: 1.5rem;
         margin-top: 2rem;
     }
@@ -216,9 +119,9 @@
     .url-box {
         display: flex;
         gap: 0.75rem;
-        background: rgba(9, 13, 22, 0.85);
+        background: #090d16;
         border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 14px;
+        border-radius: 10px;
         padding: 0.5rem;
         margin-top: 0.75rem;
     }
@@ -235,14 +138,9 @@
 
     /* Mobile, Tablet & iPad Responsive Media Queries */
     @media (max-width: 820px) {
-        .spatial-viewport-container {
-            height: 420px;
-            border-radius: 20px;
-        }
-
         .showcase-stage {
             padding: 1.25rem;
-            border-radius: 20px;
+            border-radius: 14px;
         }
 
         .meta-grid {
@@ -258,36 +156,6 @@
             gap: 0.75rem;
         }
 
-        .mode-switch-group {
-            width: 100%;
-        }
-
-        .mode-btn {
-            flex: 1;
-            justify-content: center;
-            font-size: 0.825rem;
-            padding: 0.5rem 0.65rem;
-        }
-
-        .spatial-viewport-container {
-            height: 330px;
-            border-radius: 16px;
-            margin-bottom: 1.25rem;
-        }
-
-        .spatial-controls-overlay {
-            width: 92%;
-            bottom: 0.85rem;
-            padding: 0.35rem 0.5rem;
-            gap: 0.4rem;
-            justify-content: center;
-        }
-
-        .ctrl-btn {
-            padding: 0.35rem 0.55rem;
-            font-size: 0.75rem;
-        }
-
         .meta-grid {
             grid-template-columns: 1fr 1fr;
             gap: 0.6rem;
@@ -296,13 +164,13 @@
         .meta-card {
             padding: 0.85rem;
             gap: 0.6rem;
-            border-radius: 14px;
+            border-radius: 10px;
         }
 
         .meta-icon {
             width: 36px;
             height: 36px;
-            border-radius: 10px;
+            border-radius: 8px;
         }
 
         .meta-value {
@@ -326,19 +194,14 @@
 
 <div class="show-container">
 
-    {{-- Toolbar: View Mode Switcher --}}
+    {{-- Toolbar --}}
     <div class="view-toolbar">
-        <div class="mode-switch-group">
-            <button type="button" class="mode-btn active" id="btn-mode-showcase" onclick="switchViewMode('showcase')">
-                <i data-lucide="sparkles" style="width: 18px; height: 18px;"></i> Media View
-            </button>
-            <button type="button" class="mode-btn" id="btn-mode-spatial" onclick="switchViewMode('spatial')">
-                <i data-lucide="box" style="width: 18px; height: 18px;"></i> 3D Spatial Canvas
-            </button>
+        <div class="toolbar-title">
+            <i data-lucide="file-text" style="width: 20px; height: 20px; color: #818cf8;"></i> Media Overview
         </div>
 
         <div style="display: flex; gap: 0.75rem; align-items: center;">
-            <span class="badge-3d" style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.3); color: #22d3ee;">
+            <span class="badge-formal" style="background: rgba(8, 145, 178, 0.15); border-color: rgba(8, 145, 178, 0.3); color: #22d3ee;">
                 <i data-lucide="{{ $image->is_video ? 'film' : 'image' }}" style="width: 14px; height: 14px;"></i>
                 {{ strtoupper($image->media_type) }} MEDIA
             </span>
@@ -348,31 +211,14 @@
         </div>
     </div>
 
-    {{-- Mode 1: Standard Media Showcase View (DEFAULT) --}}
-    <div class="showcase-stage tilt-3d" id="showcase-stage" style="display: block;">
+    {{-- Media Showcase View --}}
+    <div class="showcase-stage">
         <div class="media-preview-container">
             @if($image->is_video)
                 <video id="media-element" src="{{ $image->storage_url }}" controls autoplay loop playsinline style="width: 100%; height: auto; max-height: 65vh;"></video>
             @else
                 <img id="media-element" src="{{ $image->storage_url }}" alt="{{ $image->original_name }}">
             @endif
-        </div>
-    </div>
-
-    {{-- Mode 2: 3D Spatial WebGL Viewport Stage (TOGGLEABLE) --}}
-    <div class="spatial-viewport-container" id="spatial-stage" style="display: none;">
-        <canvas id="spatial-3d-canvas"></canvas>
-
-        <div class="spatial-controls-overlay">
-            <button type="button" class="ctrl-btn" id="ctrl-spin" onclick="toggle3DSpin()" title="Toggle Auto Rotation">
-                <i data-lucide="rotate-cw" style="width: 14px; height: 14px;"></i> <span id="spin-text">Auto-Spin: ON</span>
-            </button>
-            <button type="button" class="ctrl-btn" onclick="reset3DCamera()" title="Reset 3D View">
-                <i data-lucide="refresh-cw" style="width: 14px; height: 14px;"></i> Reset Camera
-            </button>
-            <button type="button" class="ctrl-btn" onclick="toggleSpatialFullscreen()" title="Fullscreen 3D View">
-                <i data-lucide="maximize-2" style="width: 14px; height: 14px;"></i> Fullscreen
-            </button>
         </div>
     </div>
 
@@ -403,7 +249,7 @@
             </div>
 
             <div class="meta-card">
-                <div class="meta-icon" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">
+                <div class="meta-icon" style="background: rgba(124, 58, 237, 0.15); color: #c084fc;">
                     <i data-lucide="hard-drive" style="width: 22px; height: 22px;"></i>
                 </div>
                 <div>
@@ -423,7 +269,7 @@
             </div>
 
             <div class="meta-card">
-                <div class="meta-icon" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">
+                <div class="meta-icon" style="background: rgba(8, 145, 178, 0.15); color: #22d3ee;">
                     <i data-lucide="key" style="width: 22px; height: 22px;"></i>
                 </div>
                 <div>
@@ -436,7 +282,7 @@
         {{-- Shareable Link Bar --}}
         <div class="share-bar">
             <label style="font-size: 0.9rem; font-weight: 600; color: #e2e8f0; display: flex; align-items: center; gap: 0.5rem;">
-                <i data-lucide="share-2" style="width: 16px; height: 16px; color: #818cf8;"></i> Shareable 3D Media Link
+                <i data-lucide="share-2" style="width: 16px; height: 16px; color: #818cf8;"></i> Shareable Media Link
             </label>
             <div class="url-box">
                 <input type="text" id="share-link-input" class="url-input mono-font" value="{{ $image->share_url }}" readonly>
@@ -454,189 +300,6 @@
 
 @section('scripts')
 <script>
-    let spatialScene, spatialCamera, spatialRenderer, spatialControls;
-    let mediaMesh, isAutoSpinning = true;
-
-    const isVideoMedia = {{ $image->is_video ? 'true' : 'false' }};
-    const mediaStorageUrl = "{{ $image->storage_url }}";
-
-    // Initialize 3D Spatial Canvas Stage
-    function initSpatial3DStage() {
-        const container = document.getElementById('spatial-stage');
-        const canvas = document.getElementById('spatial-3d-canvas');
-        if (!container || !canvas || typeof THREE === 'undefined') return;
-
-        // Scene, Camera, Renderer
-        spatialScene = new THREE.Scene();
-        spatialCamera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
-        spatialCamera.position.set(0, 0, 320);
-
-        spatialRenderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-        spatialRenderer.setSize(container.clientWidth, container.clientHeight);
-        spatialRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        // Orbit Controls
-        if (typeof THREE.OrbitControls !== 'undefined') {
-            spatialControls = new THREE.OrbitControls(spatialCamera, spatialRenderer.domElement);
-            spatialControls.enableDamping = true;
-            spatialControls.dampingFactor = 0.05;
-            spatialControls.maxDistance = 600;
-            spatialControls.minDistance = 100;
-        }
-
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-        spatialScene.add(ambientLight);
-
-        const pointLight1 = new THREE.PointLight(0xa855f7, 2, 500);
-        pointLight1.position.set(200, 200, 200);
-        spatialScene.add(pointLight1);
-
-        const pointLight2 = new THREE.PointLight(0x06b6d4, 1.8, 500);
-        pointLight2.position.set(-200, -150, 150);
-        spatialScene.add(pointLight2);
-
-        // Reflective Ground Grid
-        const gridHelper = new THREE.GridHelper(600, 30, 0x818cf8, 0x312e81);
-        gridHelper.position.y = -120;
-        spatialScene.add(gridHelper);
-
-        // Media Texture Loader (Image / Video Texture)
-        let texture;
-
-        if (isVideoMedia) {
-            const videoElem = document.getElementById('media-element') || document.createElement('video');
-            videoElem.crossOrigin = 'anonymous';
-            videoElem.loop = true;
-            videoElem.muted = true;
-            videoElem.playsInline = true;
-            videoElem.src = mediaStorageUrl;
-            videoElem.play().catch(() => {});
-
-            texture = new THREE.VideoTexture(videoElem);
-            texture.minFilter = THREE.LinearFilter;
-            texture.magFilter = THREE.LinearFilter;
-            texture.format = THREE.RGBAFormat;
-        } else {
-            const textureLoader = new THREE.TextureLoader();
-            texture = textureLoader.load(mediaStorageUrl, (tex) => {
-                // Adjust plane size based on aspect ratio
-                if (tex.image && mediaMesh) {
-                    const aspect = tex.image.width / tex.image.height;
-                    mediaMesh.scale.set(aspect > 1 ? 1.4 : 1.4 * aspect, aspect > 1 ? 1.4 / aspect : 1.4, 1);
-                }
-            });
-        }
-
-        // Create 3D Floating Glass Slab with 3D Depth
-        const planeGeo = new THREE.PlaneGeometry(160, 120);
-        const planeMat = new THREE.MeshStandardMaterial({
-            map: texture,
-            side: THREE.DoubleSide,
-            roughness: 0.2,
-            metalness: 0.1
-        });
-
-        mediaMesh = new THREE.Mesh(planeGeo, planeMat);
-        spatialScene.add(mediaMesh);
-
-        // Add 3D Glowing Border Frame around plane
-        const borderGeo = new THREE.BoxGeometry(164, 124, 6);
-        const borderMat = new THREE.MeshPhysicalMaterial({
-            color: 0x6366f1,
-            transmission: 0.7,
-            opacity: 1,
-            transparent: true,
-            roughness: 0.1,
-            ior: 1.5,
-            thickness: 5
-        });
-        const borderMesh = new THREE.Mesh(borderGeo, borderMat);
-        borderMesh.position.z = -4;
-        mediaMesh.add(borderMesh);
-
-        // Animation Loop
-        function renderLoop() {
-            requestAnimationFrame(renderLoop);
-
-            if (isAutoSpinning && mediaMesh) {
-                mediaMesh.rotation.y += 0.006;
-            }
-
-            if (spatialControls) {
-                spatialControls.update();
-            }
-
-            spatialRenderer.render(spatialScene, spatialCamera);
-        }
-
-        renderLoop();
-
-        // Handle Resize
-        window.addEventListener('resize', () => {
-            if (!container || !spatialRenderer || !spatialCamera) return;
-            spatialCamera.aspect = container.clientWidth / container.clientHeight;
-            spatialCamera.updateProjectionMatrix();
-            spatialRenderer.setSize(container.clientWidth, container.clientHeight);
-        });
-    }
-
-    // View Mode Switcher
-    function switchViewMode(mode) {
-        const spatialStage = document.getElementById('spatial-stage');
-        const showcaseStage = document.getElementById('showcase-stage');
-        const btnSpatial = document.getElementById('btn-mode-spatial');
-        const btnShowcase = document.getElementById('btn-mode-showcase');
-
-        if (mode === 'spatial') {
-            if (!spatialScene) {
-                initSpatial3DStage();
-            }
-            spatialStage.style.display = 'block';
-            showcaseStage.style.display = 'none';
-            btnSpatial.classList.add('active');
-            btnShowcase.classList.remove('active');
-        } else {
-            spatialStage.style.display = 'none';
-            showcaseStage.style.display = 'block';
-            btnShowcase.classList.add('active');
-            btnSpatial.classList.remove('active');
-        }
-    }
-
-    // 3D Controls
-    function toggle3DSpin() {
-        isAutoSpinning = !isAutoSpinning;
-        const spinText = document.getElementById('spin-text');
-        const ctrlSpin = document.getElementById('ctrl-spin');
-
-        if (spinText) spinText.textContent = `Auto-Spin: ${isAutoSpinning ? 'ON' : 'OFF'}`;
-        if (ctrlSpin) {
-            ctrlSpin.classList.toggle('active', isAutoSpinning);
-        }
-    }
-
-    function reset3DCamera() {
-        if (spatialCamera) {
-            spatialCamera.position.set(0, 0, 320);
-        }
-        if (spatialControls) {
-            spatialControls.reset();
-        }
-        if (mediaMesh) {
-            mediaMesh.rotation.set(0, 0, 0);
-        }
-    }
-
-    function toggleSpatialFullscreen() {
-        const container = document.getElementById('spatial-stage');
-        if (!document.fullscreenElement) {
-            container.requestFullscreen().catch(err => alert(err.message));
-        } else {
-            document.exitFullscreen();
-        }
-    }
-
     function copyShareLink() {
         const copyInput = document.getElementById('share-link-input');
         const copyBtn = document.getElementById('copy-btn');
@@ -657,10 +320,7 @@
             }, 2500);
         });
     }
-
-    // Default to Standard Showcase Card view on load
-    document.addEventListener('DOMContentLoaded', () => {
-        switchViewMode('showcase');
-    });
 </script>
 @endsection
+
+

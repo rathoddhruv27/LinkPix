@@ -7,7 +7,6 @@
     .upload-container {
         max-width: 720px;
         margin: 0 auto;
-        perspective: 1200px;
     }
 
     .header-section {
@@ -16,12 +15,10 @@
     }
 
     .header-section h1 {
-        font-size: 2.75rem;
+        font-size: 2.5rem;
         font-weight: 800;
         margin-bottom: 0.6rem;
-        background: linear-gradient(to right, #ffffff, #c084fc, #38bdf8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #ffffff;
         letter-spacing: -0.02em;
     }
 
@@ -30,46 +27,40 @@
         font-size: 1.15rem;
     }
 
-    /* Drag & Drop Area with 3D Depth */
+    /* Drag & Drop Area */
     .dropzone {
-        border: 2px dashed rgba(168, 85, 247, 0.4);
-        border-radius: 20px;
+        border: 2px dashed rgba(99, 102, 241, 0.4);
+        border-radius: 16px;
         padding: 3.5rem 2rem;
         text-align: center;
         background: rgba(15, 23, 42, 0.5);
         cursor: pointer;
-        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         position: relative;
         overflow: hidden;
-        transform-style: preserve-3d;
     }
 
     .dropzone:hover, .dropzone.dragover {
-        border-color: #38bdf8;
-        background: rgba(99, 102, 241, 0.12);
-        box-shadow: 0 15px 40px rgba(168, 85, 247, 0.3), inset 0 0 20px rgba(99, 102, 241, 0.2);
-        transform: translateY(-4px) translateZ(15px);
+        border-color: #6366f1;
+        background: rgba(99, 102, 241, 0.08);
     }
 
     .dropzone-icon {
         width: 72px;
         height: 72px;
         margin: 0 auto 1.25rem;
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+        background: rgba(99, 102, 241, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
+        border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #c084fc;
-        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        color: #818cf8;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .dropzone:hover .dropzone-icon {
-        transform: scale(1.15) rotate(-6deg) translateZ(25px);
-        color: #38bdf8;
-        box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4);
+        color: #a5b4fc;
+        border-color: rgba(99, 102, 241, 0.4);
     }
 
     .file-input {
@@ -83,24 +74,23 @@
         z-index: 5;
     }
 
-    /* Preview Card with 3D Depth */
+    /* Preview Card */
     .preview-card {
         display: none;
         margin-top: 1.75rem;
         background: rgba(15, 23, 42, 0.85);
         border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 18px;
+        border-radius: 14px;
         padding: 1.25rem;
         align-items: center;
         gap: 1.25rem;
-        animation: fadeIn 0.35s ease-in-out;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
 
     .preview-media-box {
         width: 90px;
         height: 90px;
-        border-radius: 14px;
+        border-radius: 12px;
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.15);
         background: #000;
@@ -143,7 +133,7 @@
     .preview-meta span {
         background: rgba(255, 255, 255, 0.08);
         padding: 0.2rem 0.65rem;
-        border-radius: 8px;
+        border-radius: 6px;
         border: 1px solid rgba(255, 255, 255, 0.08);
         display: inline-flex;
         align-items: center;
@@ -156,17 +146,15 @@
         border: 1px solid rgba(239, 68, 68, 0.3);
         width: 38px;
         height: 38px;
-        border-radius: 12px;
+        border-radius: 10px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.25s ease;
     }
 
     .btn-remove:hover {
         background: rgba(239, 68, 68, 0.3);
-        transform: scale(1.1);
     }
 
     /* Alerts */
@@ -174,24 +162,22 @@
         background: rgba(239, 68, 68, 0.12);
         border: 1px solid rgba(239, 68, 68, 0.35);
         color: #fca5a5;
-        border-radius: 16px;
+        border-radius: 14px;
         padding: 1.25rem;
         margin-bottom: 1.5rem;
         display: flex;
         align-items: flex-start;
         gap: 0.85rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     /* Success Card */
     .success-card {
         background: rgba(16, 185, 129, 0.1);
         border: 1px solid rgba(16, 185, 129, 0.35);
-        border-radius: 22px;
+        border-radius: 16px;
         padding: 2rem;
         margin-bottom: 2rem;
-        animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .success-header {
@@ -209,7 +195,7 @@
         gap: 0.75rem;
         background: rgba(9, 13, 22, 0.85);
         border: 1px solid rgba(16, 185, 129, 0.3);
-        border-radius: 14px;
+        border-radius: 10px;
         padding: 0.5rem;
         margin: 1rem 0;
     }
@@ -222,16 +208,6 @@
         padding: 0.5rem 0.75rem;
         font-size: 0.95rem;
         outline: none;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-15px); }
-        to { opacity: 1; transform: translateY(0); }
     }
 
     /* Mobile, Tablet & iPad Responsive Media Queries */
@@ -250,7 +226,7 @@
 
         .dropzone {
             padding: 2.5rem 1.25rem;
-            border-radius: 16px;
+            border-radius: 14px;
         }
 
         .dropzone-icon {
@@ -265,7 +241,7 @@
 
         .success-card {
             padding: 1.5rem 1.25rem;
-            border-radius: 18px;
+            border-radius: 14px;
         }
     }
 
@@ -343,11 +319,11 @@
             </div>
 
             <p style="color: var(--text-muted); font-size: 1rem;">
-                Your {{ $isVideo ? 'video' : 'image' }} <strong>{{ $originalName }}</strong> is now ready for 3D viewing and sharing!
+                Your {{ $isVideo ? 'video' : 'image' }} <strong>{{ $originalName }}</strong> is now ready for viewing and sharing!
             </p>
 
             <div style="margin-top: 1rem;">
-                <label style="font-size: 0.875rem; color: var(--text-muted); font-weight: 500;">Your Shareable 3D Media Link:</label>
+                <label style="font-size: 0.875rem; color: var(--text-muted); font-weight: 500;">Your Shareable Media Link:</label>
                 <div class="url-box">
                     <input type="text" id="shareable-url" class="url-input mono-font" value="{{ $shareUrl }}" readonly>
                     <button type="button" id="copy-btn" class="btn-primary" onclick="copyLink()" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">
@@ -359,7 +335,7 @@
 
             <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
                 <a href="{{ $shareUrl }}" class="btn-primary" style="flex: 1; justify-content: center;">
-                    <i data-lucide="box" style="width: 18px; height: 18px;"></i> View in 3D Spatial Player
+                    <i data-lucide="eye" style="width: 18px; height: 18px;"></i> View Media Page
                 </a>
             </div>
         </div>
@@ -380,8 +356,8 @@
         </div>
     @endif
 
-    {{-- Main 3D Upload Form --}}
-    <div class="glass-card tilt-3d" id="tilt-card">
+    {{-- Main Upload Form --}}
+    <div class="glass-card" id="upload-card">
         <div class="header-section">
             <h1>Upload & Share Media</h1>
             <p>Drag and drop your image or video file here or browse from your device</p>
@@ -424,7 +400,7 @@
 
             <div style="margin-top: 2.25rem; text-align: center;">
                 <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; padding: 1.1rem; font-size: 1.15rem;">
-                    <i data-lucide="sparkles" style="width: 22px; height: 22px;"></i> Start 3D Media Upload
+                    <i data-lucide="upload" style="width: 22px; height: 22px;"></i> Upload Media File
                 </button>
             </div>
         </form>
@@ -445,25 +421,6 @@
     const previewSize = document.getElementById('preview-size');
     const previewType = document.getElementById('preview-type');
     const previewDimension = document.getElementById('preview-dimension');
-    const tiltCard = document.getElementById('tilt-card');
-
-    // 3D Card Tilt Interaction
-    if (tiltCard) {
-        tiltCard.addEventListener('mousemove', (e) => {
-            const rect = tiltCard.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            
-            const rotateX = (-y / rect.height) * 8;
-            const rotateY = (x / rect.width) * 8;
-
-            tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        tiltCard.addEventListener('mouseleave', () => {
-            tiltCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-        });
-    }
 
     // Drag and Drop styling
     ['dragenter', 'dragover'].forEach(eventName => {
@@ -556,3 +513,4 @@
     }
 </script>
 @endsection
+

@@ -92,14 +92,17 @@ class ImageController extends Controller
     }
 
     /**
-     * Display the uploaded image and increment view count.
+     * Display the uploaded image and increment view count once per session.
      */
     public function show(string $key): View
     {
         $image = Image::where('unique_key', $key)->firstOrFail();
 
-        // Increment view count
-        $image->increment('views');
+        $viewedKey = 'viewed_image_'.$image->id;
+        if (! session()->has($viewedKey)) {
+            $image->increment('views');
+            session()->put($viewedKey, true);
+        }
 
         return view('images.show', compact('image'));
     }
