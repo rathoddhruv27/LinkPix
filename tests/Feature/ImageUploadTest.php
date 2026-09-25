@@ -17,7 +17,7 @@ class ImageUploadTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSee('LinkPix 3D');
+        $response->assertSee('ImageLK');
         $response->assertSee('Upload & Share Media', false);
     }
 

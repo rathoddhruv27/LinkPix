@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $image->original_name . ' — LinkPix 3D')
+@section('title', $image->original_name . ' — ImageLK')
 
 @section('styles')
 <style>

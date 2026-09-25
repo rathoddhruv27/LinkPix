@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'LinkPix 3D — Upload & Share Images & Videos')
+@section('title', 'ImageLK — Upload & Share Images & Videos')
 
 @section('styles')
 <style>

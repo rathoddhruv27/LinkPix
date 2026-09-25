@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'LinkPix — Free Image Hosting & Sharing')</title>
-    <meta name="description" content="Upload and share your images instantly with LinkPix. Fast, secure, and hassle-free image hosting.">
+    <title>@yield('title', 'ImageLK — Free Image Hosting & Sharing')</title>
+    <meta name="description" content="Upload and share your images instantly with ImageLK. Fast, secure, and hassle-free image hosting.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
@@ -321,7 +321,7 @@
                 <div class="logo-badge">
                     <i data-lucide="box" style="width: 20px; height: 20px;"></i>
                 </div>
-                <span class="brand-name">LinkPix 3D</span>
+                <span class="brand-name">ImageLK</span>
             </a>
 
             <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
@@ -343,7 +343,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; {{ date('Y') }} LinkPix 3D — Next-Gen Interactive Video & Image Hosting.</p>
+            <p>&copy; {{ date('Y') }} ImageLK — Next-Gen Interactive Video & Image Hosting.</p>
         </div>
     </footer>
 
